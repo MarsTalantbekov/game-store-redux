@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { useReducer } from "react";
+import { BrowserRouter as Router, 
+  Switch, 
+  Route, 
+  Link } from "react-router-dom";
+import { Provider } from "react-redux";
+import { store } from "./redux";
+import Header from "./components/Header/Header"
+import HomePage from "./pages/Home-Page/HomePage";
+import GamePage from './pages/GamePage/GamePage';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <Router>
+        <div className="App">
+          <Header />
+          <Switch>
+            <Route exact path="/">
+              <HomePage />
+            </Route>
+            <Route exact path="/app/:title">
+              <GamePage />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
+    </Provider>
   );
 }
 
