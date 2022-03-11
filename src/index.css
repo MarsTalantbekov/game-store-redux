@@ -6,8 +6,23 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(25, 26, 28);
+  background: linear-gradient(45deg, #1b1e25, #2a3445);
+  /* #1b1e25, #2a3445 */
+  background-size: 400% 400%;
+  animation: gradients 5s ease infinite;
   font-family: 'Inter', sans-serif;
+}
+
+@keyframes gradients {
+  0%{
+    background-position: 0 50%;
+  }
+  50%{
+    background-position: 100% 50%;
+  }
+  100%{
+    background-position: 0 50%;
+  }
 }
 
 code {
